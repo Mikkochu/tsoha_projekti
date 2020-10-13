@@ -1,0 +1,13 @@
+{% extends "shared/layout.html" %}
+{% block main_content %}
+
+<h1>Search results</h1>
+
+    {% if search_results %}
+        {% for result in search_results %}
+            <p> <a href="restaurant/{{ result.id }}">{{ result.name }}</a></p>
+        {% endfor %}
+    {% else %}
+        <p>Sorry, no search results</p>
+    {% endif %}
+{% endblock %}

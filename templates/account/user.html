@@ -1,0 +1,73 @@
+{% extends "shared/layout.html" %}
+{% block main_content %}
+
+
+    <div class="container">
+        <h2 class="text-center">Profile</h2>
+        <div class="row">
+            <div class="col-sm text-center border border-info">
+                <img src="/show_profile_picture/{{ user_id }}" height="200" width="200" >
+            </div>
+        </div>
+        <div class="row border border-info">
+            <div class="col-sm ">
+                <form method="POST" action="/send_profile_picture" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <span class="text-center">Upload profile picture?</span>
+                        <input type=file name=inputFile>
+                        <input type="hidden" name="id" value="{{ user_id }}">
+                        <button type="submit" class="btn btn-primary btn-sm">SUBMIT</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm">
+                <form method="POST" action="/delete_user">
+                    <span class="text-center">Delete account?</span>
+                    <div class="form-group">
+                        <input type="hidden" name="id" value="{{ user_id }}">
+                    </div>
+                    <button type="submit" class="btn btn-danger btn-sm">DELETE ACCOUNT</button>
+                </form>
+            </div>
+            <div class="col-sm">
+                <form method="POST" action="/delete_image">
+                    <span class="text-center">Delete profile image?</span>
+                    <div class="form-group">
+                        <input type="hidden" name="id" value="{{ user_id }}">
+                    </div>
+                    <button type="submit" class="btn btn-danger btn-sm">DELETE IMAGE</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <h1 class="text-center">My Reviews</h1>
+
+                {% if not my_reviews %}
+                    <div class="text-center">
+                        <p>You have no reviews. <span><a href="/review_restaurant">Create a review?</a></span></p>
+                    </div>
+                {% else %}
+
+                    {% for review in my_reviews %}
+                        <form action="/delete_review" method="POST">
+                            <div class="form-group">
+                                <input type="hidden" name="review_id" value={{ review.id }}>
+                                <input type="hidden" name="user_id" value="{{ user_id }}">
+                            </div>
+                            <p>RESTAURANT: {{ review.name }}, REVIEW: "{{ review.review }}", GRADE: {{ review.grade }}
+                                <button type="submit" class="btn btn-danger btn-sm">DELETE REVIEW</button>
+                            </p>
+                        </form>
+                    {% endfor %}
+
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+{% endblock %}

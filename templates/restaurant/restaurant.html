@@ -1,0 +1,75 @@
+{% extends "shared/layout.html" %}
+{% block main_content %}
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img src="/show_restaurant_image/{{ restaurant.id }}" height="225" width="200">
+            </div>
+            <div class="col">
+                <h1 class="text-center font-weight-bold">{{ restaurant.name }}</h1>
+                <h2 class="text-center font-italic"><u>{{ restaurant.intro }}</u></h2>
+            </div>
+            <div class="col"></div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+            <h1 class="text-center font-weight-bold">Reviews</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        {% if not reviews %}
+            <p class="text-center">This restaurant has no reviews. <span><a
+                    href="/review_restaurant">Create a review?</a></span>
+            </p>
+        {% else %}
+            {% for review in reviews %}
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="/show_profile_picture/{{ review.user_id }}" class="img-rounded" height="75" width="75" alt="User image" >
+                        <h4 class="card-title">{{ review.review }}</h4>
+                        <p class="card-text">Grade: {{ review.grade }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+            {% endfor %}
+    {% endif %}	
+    </div>
+
+    <br>
+    <br>
+        <div class="container">
+        <div class="row">
+            <div class="col">
+                {% if restaurant.lat != 0.0 and restaurant.lng != 0.0 %}
+                    <h1>Restaurant location:</h1>
+                    {{ googlemap("simple-map", restaurant.lat, restaurant.lng, markers=[(restaurant.lat, restaurant.lng, restaurant.name)]) }}
+
+    {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

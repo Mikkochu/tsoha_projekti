@@ -1,0 +1,51 @@
+{% extends "shared/layout.html" %}
+{% block main_content %}
+
+<h1>EDIT RESTAURANT</h1>
+
+<div>
+    <p>ID: {{ restaurant.id }}</p>
+    <p>NAME: {{ restaurant.name }}</p>
+    <p>ADRESS: {{ restaurant.address }}</p>
+    <p>INTRO: {{ restaurant.intro }}</p>
+    <p>LAT: {{ restaurant.lat }}</p>
+    <p>LNG: {{ restaurant.lng }}</p>
+    <img src="/show_restaurant_image/{{ restaurant.id }}" height="200" width="200">
+</div>
+
+    <div class="px-2">
+        <form action="/edit_restaurant/{{ restaurant.id }}" method="POST" class="mx-auto text-left form p-4" enctype="multipart/form-data">
+            <div class="form-group">
+                <label class="sr-only">Restaurant name</label>
+                <input type="text" name="name" class="form-control" placeholder="Restaurant name">
+            </div>
+            <div class="form-group">
+                <label class="sr-only">Restaurant adddress</label>
+                <input type="text" name="address" class="form-control" placeholder="Restaurant adddress">
+            </div>
+            <div class="form-group">
+                <label class="sr-only">Restaurant latitude</label>
+                <input type="number" step="0.0000000001" name="lat" class="form-control"
+                       placeholder="Restaurant latitude ex. 60.xx">
+            </div>
+            <div class="form-group">
+                <label class="sr-only">Restaurant longitude</label>
+                <input type="number" step="0.0000000001" name="lng" class="form-control"
+                       placeholder="Restaurant longitude ex. 24..">
+            </div>
+            <div class="form-group">
+                <label class="sr-only">Introduction text</label>
+                <textarea name="intro"  cols="15" rows="5" placeholder="Introduction"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="inputFile">Upload file</label>
+                <input type=file name=inputFile>
+            </div>
+
+    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+    </form>
+    </div>
+
+
+
+{% endblock %}

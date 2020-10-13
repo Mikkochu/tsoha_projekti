@@ -1,0 +1,30 @@
+{% extends "shared/layout.html" %}
+{% block main_content %}
+
+
+    <h1 class="text-center">Restaurants</h1>
+
+    <div class="container">
+        {% for r in restaurants %}
+            <div class="row">
+            <div class="col-sm">
+                <div class="card" style="width:200px">
+                    <img class="card-img-top" src="/show_restaurant_image/{{ r.id }}" alt="restaurant image" height="150"
+                         width="200">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ r.name}}</h4>
+                        <p class="card-text">{{ r.intro }}</p>
+                        <a href="/restaurant/{{ r.id }}" class="btn btn-primary">View restaurant</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+
+
+
+
+
+
+{% endblock %}

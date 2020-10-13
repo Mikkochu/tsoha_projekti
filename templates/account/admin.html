@@ -1,0 +1,38 @@
+{% extends "shared/layout.html" %}
+{% block main_content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <h1>Add Restaurant</h1>
+                <a href="/add_restaurant">Add new restaurant</a>
+            </div>
+            <div class="col-sm">
+                <h1>Edit restaurant</h1>
+                <form action="/edit_restaurant" method="POST" class="justify-content-center">
+                    <label>Choose a restaurant to edit:</label>
+                    <select name="id">
+                        {% for r in restaurants %}
+                            <div><span>{{ r.name }}</span>, <span>{{ r.address }}</span>, <span>{{ r.intro }}</span>
+                            </div>
+                            <option value={{ r.id }}>{{ r.name }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                </form>
+            </div>
+        </div>
+{#        <div class="row">#}
+{#            <div class="col-lg">#}
+{#                <h3>Restaurants</h3>#}
+{#                {% for r in restaurants %}#}
+{#                    <p>{{ r.name }}</p>#}
+{#                {% endfor %}#}
+{#            </div>#}
+{#        </div>#}
+    </div>
+    </div>
+
+
+{% endblock %}

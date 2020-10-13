@@ -1,0 +1,36 @@
+{% extends "shared/layout.html" %}
+{% block main_content %}
+
+<h1  class="text-center">Review restaurants</h1>
+
+
+
+<form action="/review_restaurant" method="POST" class="justify-content-center text-center">
+    <label >Choose a restaurant to review:</label>
+    <select name="id">
+        {% for r in restaurants %}
+            <div><span>{{ r.name }}</span>, <span>{{ r.address }}</span>, <span>{{ r.intro }}</span></div>
+            <option value={{ r.id }}>{{ r.name }}</option>
+        {% endfor %}
+    </select>
+    <div>
+        <label class="sr-only">Introduction text</label>
+        <textarea name="review" cols="25" rows="5" placeholder="Review"></textarea>
+    </div>
+    <div>
+        Grade:
+        <select name="grade">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        </select>
+    </div>
+    <input type="hidden" name="user_id" value="{{ user_id }}">
+    <button type="submit" class="btn btn-primary btn-md">Submit</button>
+</form>
+
+
+
+{% endblock %}

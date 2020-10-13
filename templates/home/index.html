@@ -1,0 +1,50 @@
+{% extends "shared/layout.html" %}
+{% block main_content %}
+
+
+    <h2 class="text-center ">What would you like to do?</h2>
+    <br>
+
+    <div class="container">
+        <div class="row ">
+            <div class="col-sm">
+                <div>
+                    <a href="/restaurants">Show restaurants</a>
+                </div>
+            </div>
+            <div class="col-sm">
+                <a href="/review_restaurant">Review restaurants</a>
+            </div>
+            <div class="col-sm">
+                <a href="/user/{{ user_id }}">View profile</a>
+
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-sm">
+                {% if admin %}
+                    <a href="/admin">Edit restaurant</a>
+                {% endif %}
+            </div>
+            <div class="col-sm">
+                {% if admin %}
+                     <a href="/add_restaurant">Add restaurant</a>
+                {% endif %}
+            </div>
+            <div class="col-sm">
+                {% if admin %}
+                    <a href="/admin">Visit admin page</a>
+                {% endif %}
+            </div>
+        <div/>
+    </div>
+
+
+
+
+
+
+
+{% endblock %}
