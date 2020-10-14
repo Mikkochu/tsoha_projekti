@@ -31,6 +31,6 @@ def register_blueprints():
 
 
 
-if __name__ == 'app':
-    main()
+#if __name__ == 'app':
+main()
 
