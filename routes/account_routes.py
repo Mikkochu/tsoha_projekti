@@ -52,7 +52,7 @@ def register():
         username = form.username.data
         password = form.password.data
         confirm = form.confirm_password.data
-        print(username, password, confirm)
+        #print(username, password, confirm)
 
         hash_value = generate_password_hash(password)
         user_exists = account_service.check_existing_user(username)
