@@ -39,9 +39,9 @@ def search_restaurant(search_string):
 
 
 def update_restaurant_field(field_name, value, id):
-    sql = """UPDATE restaurants SET :field_name = :value WHERE id = :id"""
+    #sql = """UPDATE restaurants SET :field_name = :value WHERE id = :id"""
     sql = f"""UPDATE restaurants SET {field_name} = :value WHERE id = :id"""
-    print(sql)
+
     db.session.execute(sql, {"value": value, "id":id})
     db.session.commit()
 

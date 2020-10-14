@@ -5,7 +5,6 @@ from typing import Optional
 
 
 def login_service(username:str):
-    #sql = "SELECT password FROM projekti.users WHERE username=:username"
     sql = "SELECT password FROM users WHERE username=:username"
     result = db.session.execute(sql, {"username": username})
     password = result.fetchone()

@@ -97,9 +97,11 @@ def user(id:int):
 @blueprint.route("/show_profile_picture/<int:user_id>", methods=["GET"])
 def show_profile_picture(user_id):
     from app import db
-    sql = "SELECT data FROM projekti.user_images WHERE user_id=:user_id"
+    sql = "SELECT data FROM user_images WHERE user_id=:user_id"
     result = db.session.execute(sql, {"user_id":user_id})
-    data = result.fetchone()[0]
+
+    data = result.fetchone()[0] #todo tassa virhe koska ei kuvaa
+
     response = make_response(bytes(data))
     response.headers.set("Content-Type","image/jpeg")
     return response
@@ -126,7 +128,7 @@ def send_profile_picture():
     from app import db
 
     account_service.delete_user_image(user_id)
-    sql = "INSERT INTO projekti.user_images (user_id, data) VALUES (:user_id,:data)"
+    sql = "INSERT INTO user_images (user_id, data) VALUES (:user_id,:data)"
     db.session.execute(sql, {"user_id":user_id, "data":data})
     db.session.commit()
 
