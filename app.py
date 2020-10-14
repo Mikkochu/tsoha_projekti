@@ -15,7 +15,6 @@ GoogleMaps(app, key=getenv("GOOGLE_API_KEY"))
 
 
 def main():
-    print("toimi saatana2")
     register_blueprints()
     app.run()
 
@@ -32,7 +31,6 @@ def register_blueprints():
 
 
 
-if __name__ == 'main':
-    print("toimi saatana")
+if __name__ == "__main__" :
     main()
 
