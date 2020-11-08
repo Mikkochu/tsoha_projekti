@@ -172,3 +172,5 @@ def check_user(): #todo siirra accounttiin ja mieti koko kuvio viela
 
     user_id = account_service.find_id_by_username(username)[0]
     return user_id, is_admin
+
+
