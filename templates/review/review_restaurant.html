@@ -4,7 +4,7 @@
 <h1  class="text-center">Review restaurants</h1>
 
 
-
+{% if restaurants %}
 <form action="/review_restaurant" method="POST" class="justify-content-center text-center">
     <label >Choose a restaurant to review:</label>
     <select name="id">
@@ -31,6 +31,9 @@
     <button type="submit" class="btn btn-primary btn-md">Submit</button>
 </form>
 
+{% else %}
 
+<h3 class="text-center">No restaurants to review. Please add a restaurant</h3>
+{% endif %}
 
 {% endblock %}

@@ -959,21 +959,25 @@ sequence|table|24796|24798|1
     </sequence>
     <table id="34" parent="16" name="restaurant_images">
       <ObjectId>24754</ObjectId>
+      <Outdated>1</Outdated>
       <Owner>postgres</Owner>
       <StateNumber>848</StateNumber>
     </table>
     <table id="35" parent="16" name="restaurants">
       <ObjectId>24798</ObjectId>
+      <Outdated>1</Outdated>
       <Owner>postgres</Owner>
       <StateNumber>852</StateNumber>
     </table>
     <table id="36" parent="16" name="reviews">
       <ObjectId>24765</ObjectId>
+      <Outdated>1</Outdated>
       <Owner>postgres</Owner>
       <StateNumber>849</StateNumber>
     </table>
     <table id="37" parent="16" name="user_images">
       <ObjectId>24787</ObjectId>
+      <Outdated>1</Outdated>
       <Owner>postgres</Owner>
       <StateNumber>851</StateNumber>
     </table>

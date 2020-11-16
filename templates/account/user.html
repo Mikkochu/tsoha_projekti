@@ -55,7 +55,7 @@
                                 <input type="hidden" name="review_id" value={{ review.id }}>
                                 <input type="hidden" name="user_id" value="{{ user_id }}">
                             </div>
-                            <p>RESTAURANT: {{ review.name }}, REVIEW: "{{ review.review }}", GRADE: {{ review.grade }}
+                            <p>{{ review.name }}, REVIEW: "{{ review.review }}", GRADE: {{ review.grade }}
                                 <button type="submit" class="btn btn-danger btn-sm">DELETE REVIEW</button>
                             </p>
                         </form>
